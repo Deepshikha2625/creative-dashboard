@@ -26,6 +26,7 @@ import {
   Email,
   Business,
 } from '@mui/icons-material';
+import Loader from '@/components/ui/Loader';
 
 interface User {
   id: number;
@@ -145,6 +146,7 @@ const StatsCard = ({ title, value, change, icon, color }: StatsCardProps) => (
 
 const Dashboard = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const [loadingUsers, setLoadingUsers] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -153,6 +155,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
+      setLoadingUsers(true);
       try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users');
         const userData = await response.json();
@@ -160,6 +163,7 @@ const Dashboard = () => {
       } catch (error) {
         console.error('Error fetching users:', error);
       }
+      setLoadingUsers(false);
     };
     fetchUsers();
   }, []);
@@ -258,13 +262,14 @@ const Dashboard = () => {
         {/* Users Data Table */}
         <Paper
           elevation={2}
-          className="glass-card overflow-hidden shadow-2xl"
+          className="glass-card overflow-hidden shadow-2xl relative"
           sx={{
             background: 'var(--gradient-glass)',
             backdropFilter: 'blur(20px)',
             borderRadius: 4,
           }}
         >
+          {loadingUsers && <Loader overlay />}
           <Box className="p-6 border-b border-glass-border/30 bg-background/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <Typography variant="h6" className="font-semibold text-foreground text-lg">
               Users Management
@@ -327,7 +332,7 @@ const Dashboard = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {paginatedUsers.map((user) => (
+                  {paginatedUsers?.map((user) => (
                     <TableRow
                       key={user.id}
                       className="hover:bg-muted/50 transition-smooth"
