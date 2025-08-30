@@ -15,20 +15,25 @@ import { Visibility, VisibilityOff, LockOutlined } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 
 const Login = () => {
+
   const navigate = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Set a dummy token cookie for authentication (expires in 1 day)
+    setLoading(true);
+    // Simulate async login (replace with real API call if needed)
+    await new Promise((res) => setTimeout(res, 1200));
     if (typeof window !== 'undefined') {
       document.cookie = `token=dummy-token; path=/; max-age=86400`;
     }
     navigate.push('/dashboard');
+    setLoading(false);
   };
 
   const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -207,8 +212,10 @@ const Login = () => {
                   transform: 'scale(1.03)',
                 },
               }}
+              disabled={loading}
+              startIcon={loading ? <span style={{display:'flex',alignItems:'center'}}><svg style={{marginRight:8}} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-spin"><circle cx="12" cy="12" r="10" strokeOpacity=".25"/><path d="M22 12a10 10 0 0 1-10 10"/></svg></span> : null}
             >
-              Sign In
+              {loading ? 'Signing In...' : 'Sign In'}
             </Button>
           </Box>
 

@@ -1,5 +1,6 @@
 'use client'
 import { useState, useMemo } from 'react';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 import {
   Box,
   Paper,
@@ -195,7 +196,7 @@ const Reports = () => {
       {/* Header */}
       <Box className="glass-card p-6" sx={{ background: 'var(--gradient-glass)', backdropFilter: 'blur(20px)' }}>
         <Typography variant="h4" className="font-bold bg-gradient-to-r from-primary-glow to-accent-glow bg-clip-text text-black mb-2">
-          Analytics & Reports 📊
+          Analytics & Reports <AnalyticsIcon/>
         </Typography>
         <Typography variant="body1" className="text-muted-foreground">
           Track your performance with interactive charts and metrics.

@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import SettingsIcon from '@mui/icons-material/Settings';
 import {
   Box,
   Paper,
@@ -86,7 +87,7 @@ const Settings = () => {
       {/* Header */}
       <Box className="glass-card p-6" sx={{ background: 'var(--gradient-glass)', backdropFilter: 'blur(20px)' }}>
         <Typography variant="h4" className="font-bold bg-gradient-to-r from-primary-glow to-accent-glow bg-clip-text text-black mb-2">
-          Settings & Preferences ⚙️
+          Settings & Preferences <SettingsIcon/>
         </Typography>
         <Typography variant="body1" className="text-muted-foreground">
           Manage your account settings and application preferences.
@@ -196,9 +197,7 @@ const Settings = () => {
             </div>
 
             <Box className="pt-6 border-t border-glass-border/30 flex justify-end space-x-3">
-              <Button variant="outlined" className="border-border text-foreground">
-                Cancel
-              </Button>
+            
               <Button 
                 variant="contained"
                 className="gradient-primary glow-primary"

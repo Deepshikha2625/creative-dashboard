@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from 'react';
+import ChatIcon from '@mui/icons-material/Chat';
 import {
   Box,
   Paper,
@@ -167,7 +168,7 @@ const Chat = () => {
       {/* Header */}
       <Box className="glass-card p-6" sx={{ background: 'var(--gradient-glass)', backdropFilter: 'blur(20px)' }}>
         <Typography variant="h4" className="font-bold bg-gradient-to-r from-primary-glow to-accent-glow bg-clip-text text-black mb-2">
-          Chat & Messages 💬
+          Chat & Messages <ChatIcon/>
         </Typography>
         <Typography variant="body1" className="text-muted-foreground">
           Stay connected with your team and clients.
