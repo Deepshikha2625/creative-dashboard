@@ -1,0 +1,161 @@
+
+body, h1, h2, h3, h4, h5, h6, p, span, label, th, td, div, a, li, .MuiTypography-root, .MuiTypography-colorTextSecondary, .text-muted-foreground {
+  color: hsl(var(--foreground)) !important;
+}
+@import "tailwindcss";
+
+
+
+:root {
+  --foreground: 0 0% 100%; /* white for dark mode */
+  --background: 240 10% 5%;
+    --background-secondary: 240 8% 8%;
+  --foreground: 0 0% 100%;
+
+    /* Glass Morphism Cards */
+    --card: 240 10% 10%;
+    --card-foreground: 0 0% 95%;
+    --glass-bg: 240 10% 15%;
+    --glass-border: 240 15% 25%;
+
+    /* Modern Brand Colors */
+    --primary: 261 83% 58%;
+    --primary-glow: 261 83% 68%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 10% 15%;
+    --secondary-foreground: 0 0% 85%;
+
+    --accent: 192 85% 55%;
+    --accent-glow: 192 85% 65%;
+    --accent-foreground: 240 10% 5%;
+
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --success-glow: 142 76% 46%;
+    --warning: 48 96% 53%;
+    --warning-glow: 48 96% 63%;
+    --destructive: 0 84% 60%;
+    --destructive-glow: 0 84% 70%;
+
+    /* UI Elements */
+--muted: 0 0% 100%;
+ --muted-foreground: 240 5% 65%;
+    --border: 240 15% 20%;
+    --input: 240 10% 12%;
+    --ring: 261 83% 58%;
+
+    /* Sidebar System */
+    --sidebar-background: 240 12% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 261 83% 58%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 10% 15%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 240 15% 18%;
+    --sidebar-ring: 261 83% 58%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(261 83% 58%), hsl(192 85% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 10% 15%), hsl(240 8% 8%));
+    --gradient-glass: linear-gradient(135deg, hsl(240 10% 15% / 0.8), hsl(240 15% 20% / 0.4));
+
+    /* Shadows & Effects */
+    --shadow-glass: 0 8px 32px hsl(240 10% 3% / 0.3);
+    --shadow-glow: 0 0 20px hsl(261 83% 58% / 0.3);
+    --shadow-accent: 0 0 20px hsl(192 85% 55% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 16px;
+}
+
+
+
+.light {
+  --foreground: 0 0% 10%; /* almost black for light mode */
+ --background: 0 0% 98%;
+    --background-secondary: 0 0% 95%;
+  /* --foreground removed, replaced with --foreground-white for white text */
+  --foreground-white: 0 0% 100%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 5%;
+    --glass-bg: 0 0% 100%;
+    --glass-border: 240 10% 90%;
+
+    --primary: 261 83% 58%;
+    --primary-glow: 261 83% 68%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 5% 95%;
+    --secondary-foreground: 240 10% 15%;
+
+    --accent: 192 85% 55%;
+    --accent-glow: 192 85% 65%;
+    --accent-foreground: 0 0% 98%;
+--muted: 0 0% 100%;
+ --muted-foreground: 240 5% 65%;
+    --border: 240 10% 90%;
+    --input: 240 5% 98%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 10% 15%;
+    --sidebar-accent: 240 5% 95%;
+    --sidebar-accent-foreground: 240 10% 15%;
+    --sidebar-border: 240 10% 90%;
+
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.8), hsl(240 5% 95% / 0.4));
+    --shadow-glass: 0 8px 32px hsl(240 10% 20% / 0.1);
+}
+
+/* Custom utility classes (no @apply, no @layer) */
+.glass-card {
+	background: var(--glass-bg) / 80%;
+	backdrop-filter: blur(20px);
+	border: 1px solid var(--glass-border);
+	border-radius: 1rem;
+	box-shadow: var(--shadow-glass);
+}
+.gradient-primary {
+	background: var(--gradient-primary);
+}
+.gradient-glass {
+	background: var(--gradient-glass);
+}
+.glow-primary {
+	box-shadow: var(--shadow-glow);
+}
+.glow-accent {
+	box-shadow: var(--shadow-accent);
+}
+.transition-smooth {
+	transition: var(--transition-smooth);
+}
+.transition-bounce {
+	transition: var(--transition-bounce);
+}
+.shadow-glass {
+	box-shadow: var(--shadow-glass);
+}
+* {
+	border-color: var(--border);
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground)!important;
+}
+
+/* Ensure all MUI Typography uses the correct foreground color */
+.MuiTypography-root {
+	color: var(--foreground) !important;
+}
+
+/* Utility for secondary text */
+.text-muted-foreground, .MuiTypography-colorTextSecondary {
+	color: var(--muted-foreground) !important;
+}
+
